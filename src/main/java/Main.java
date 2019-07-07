@@ -11,11 +11,16 @@ public class Main {
 
         List<Integer> array = new ArrayList<>();
         System.out.println("========Please enter ten numbers, after each press key Enter========");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        for (int i = 0; i < 10; i++) {
-            array.add(Integer.parseInt(reader.readLine()));
-        }
 
+
+        while (array.size() < 10) {
+            try {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+                array.add(Integer.parseInt(reader.readLine()));
+            } catch (NumberFormatException e) {
+                System.out.println("You entered an incorrect number, please enter " + (10 - array.size()) + " more numbers");
+            }
+        }
 
         EvenComparator evenComparator = new EvenComparator();
         Set<Integer> set = new TreeSet<>(evenComparator);
