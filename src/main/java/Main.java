@@ -10,15 +10,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         List<Integer> array = new ArrayList<>();
-        System.out.println("========Please enter ten numbers, after each press key Enter========");
-
+        System.out.println("========Please enter ten numbers (integer), after each press key Enter========");
 
         while (array.size() < 10) {
             try {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                 array.add(Integer.parseInt(reader.readLine()));
             } catch (NumberFormatException e) {
-                System.out.println("You entered an incorrect number, please enter " + (10 - array.size()) + " more numbers");
+                System.out.println("You entered an incorrect number (not a number or not an integer). " +
+                        "Please enter " + (10 - array.size()) + " more numbers (integer)");
             }
         }
 
